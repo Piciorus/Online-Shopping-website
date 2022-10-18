@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext, useRef } from "react";
+import { Button, Col, Container, Form, Navbar } from "react-bootstrap";
+import { AuthContext } from "./context/AuthContext";
+import { auth } from "./firebaseSetup";
+import Login from "./login";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
+  const user = useContext(AuthContext);
+
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+
+  const createAccount = async () => {
+    try {
+      await auth.createUserWithEmailAndPassword(
+        emailRef.current!.value,
+        passwordRef.current!.value
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const signIn = async () => {
+    try {
+      await auth.signInWithEmailAndPassword(
+        emailRef.current!.value,
+        passwordRef.current!.value
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const signOut = async () => {
+    await auth.signOut();
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+        </Routes>
+    </BrowserRouter>
+    );
 }
 
 export default App;
