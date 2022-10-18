@@ -4,6 +4,7 @@ import { AuthContext } from "./context/AuthContext";
 import { auth } from "./firebaseSetup";
 import Login from "./login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Register from "./Register";
 
 function App() {
   const user = useContext(AuthContext);
@@ -41,6 +42,8 @@ function App() {
     <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+
         </Routes>
     </BrowserRouter>
     );
