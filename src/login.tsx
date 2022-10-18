@@ -5,9 +5,11 @@ import { auth } from "./firebaseSetup";
 import profile from "./image/profile.png";
 import "./App.css";
 import "./index.css";
+import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
   const user = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -70,7 +72,7 @@ const Login: React.FC = () => {
                 <div>
                   <Button variant="link">Forgot password</Button>
                   <a className="mt-1">Or</a>
-                  <Button onClick={createAccount} variant="link">
+                  <Button onClick={() => navigate("/register")} variant="link">
                     Sign Up
                   </Button>
                 </div>

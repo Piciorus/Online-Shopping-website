@@ -72,8 +72,8 @@ const Register: React.FC = () => {
                 <div>
                   <Button variant="link">Forgot password</Button>
                   <a className="mt-1">Or</a>
-                  <Button onClick={() => navigate("/register")} variant="link">
-                    Sign Up
+                  <Button onClick={() => navigate("/")} variant="link">
+                    Already have an account
                   </Button>
                 </div>
               </div>
