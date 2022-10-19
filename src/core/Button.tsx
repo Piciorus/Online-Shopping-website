@@ -24,7 +24,7 @@ const Button1: React.FC<Props> = ({
   disabled,
   border,
   icon = false,
-  backgroundColor = "light",
+  backgroundColor,
   textallign = "center",
 }) => {
 
@@ -33,11 +33,11 @@ const Button1: React.FC<Props> = ({
       case "standard":
         return "underline decoration-zinc-800 hover:decoration-white";
       case "non-standard":
-        return "hover:bg-stone-600";
+        return "hover:bg-red-600";
       case "icon":
         return "py-1 bg-inherit";
       default:
-        return "underline decoration-zinc-800 hover:decoration-white";
+        return "underline decoration-zinc-800 hover:decoration-white ";
     }
   };
 
@@ -47,8 +47,8 @@ const Button1: React.FC<Props> = ({
   const borderClass = border ? "border-2 border-black" : "";
   const backgroundClass =
     backgroundColor === "dark"
-      ? "bg-zinc-800 text-white"
-      : "bg-inherit text-black";
+      ? "bg-black-800 text-white font-bold"
+      : "bg-green-900 text-black rounded-full";
   const textAlignClass = textallign === "center" ? "text-center" : "text-right";
 
   return (
