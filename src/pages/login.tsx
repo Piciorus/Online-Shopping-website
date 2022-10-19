@@ -1,10 +1,9 @@
 import React, { useContext, useRef, useState } from "react";
-import { AuthContext } from "./context/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 import Button from "react-bootstrap/Button";
-import { auth } from "./firebaseSetup";
-import profile from "./image/profile.png";
-import "./App.css";
-import "./index.css";
+import { auth } from "../firebaseSetup/firebaseSetup";
+import profile from "../image/profile.png";
+import "../index.css";
 import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
@@ -15,16 +14,6 @@ const Login: React.FC = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
-  const createAccount = async () => {
-    try {
-      await auth.createUserWithEmailAndPassword(
-        emailRef.current!.value,
-        passwordRef.current!.value
-      );
-    } catch (error) {
-      console.error(error);
-    }
-  };
   const signOut = async () => {
     await auth.signOut();
   };

@@ -1,10 +1,9 @@
 import React, { useContext, useRef, useState } from "react";
-import { AuthContext } from "./context/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 import Button from "react-bootstrap/Button";
-import { auth } from "./firebaseSetup";
-import profile from "./image/profile.png";
-import "./App.css";
-import "./index.css";
+import { auth } from "../firebaseSetup/firebaseSetup";
+import profile from "../image/profile.png";
+import "../index.css";
 import { useNavigate } from "react-router-dom";
 
 const Register: React.FC = () => {
@@ -30,16 +29,7 @@ const Register: React.FC = () => {
   const signOut = async () => {
     await auth.signOut();
   };
-  const signIn = async () => {
-    try {
-      await auth.signInWithEmailAndPassword(
-        emailRef.current!.value,
-        passwordRef.current!.value
-      );
-    } catch (error) {
-      console.log("Login fails!");
-    }
-  };
+
   return (
     <>
       {user && <Button onClick={signOut}>Sign Out</Button>}

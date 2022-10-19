@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import firebase from "firebase/compat/app";
-import { auth } from "../firebaseSetup";
+import { auth } from "../firebaseSetup/firebaseSetup";
 
 type Props = {
   children: React.ReactNode
