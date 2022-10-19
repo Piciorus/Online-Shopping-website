@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { AuthContext } from "./context/AuthContext";
 import Button from "react-bootstrap/Button";
 import { auth } from "./firebaseSetup";
@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 const Login: React.FC = () => {
   const user = useContext(AuthContext);
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -33,8 +34,10 @@ const Login: React.FC = () => {
         emailRef.current!.value,
         passwordRef.current!.value
       );
+      setError("");
     } catch (error) {
-      console.error(error);
+      console.log("Login fails!");
+      setError("Invalid Username or Password");
     }
   };
   return (
@@ -66,6 +69,7 @@ const Login: React.FC = () => {
                     className="name"
                   />
                 </div>
+                {error ? <div className="error">{error}</div> : null}
                 <button className="button" onClick={signIn}>
                   Login
                 </button>

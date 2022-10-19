@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { AuthContext } from "./context/AuthContext";
 import Button from "react-bootstrap/Button";
 import { auth } from "./firebaseSetup";
@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 const Register: React.FC = () => {
   const user = useContext(AuthContext);
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -20,8 +21,10 @@ const Register: React.FC = () => {
         emailRef.current!.value,
         passwordRef.current!.value
       );
+      setError("");
     } catch (error) {
       console.error(error);
+      setError("Invalid email");
     }
   };
   const signOut = async () => {
@@ -34,7 +37,7 @@ const Register: React.FC = () => {
         passwordRef.current!.value
       );
     } catch (error) {
-      console.error(error);
+      console.log("Login fails!");
     }
   };
   return (
@@ -66,8 +69,10 @@ const Register: React.FC = () => {
                     className="name"
                   />
                 </div>
-                <button className="button" onClick={signIn}>
-                  Login
+                {error ? <div className="error">{error}</div> : null}
+
+                <button className="button" onClick={createAccount}>
+                  Sign up
                 </button>
                 <div>
                   <Button variant="link">Forgot password</Button>
