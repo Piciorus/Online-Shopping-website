@@ -5,6 +5,7 @@ import { auth } from "../firebaseSetup/firebaseSetup";
 import profile from "../image/profile.png";
 import "../index.css";
 import { useNavigate } from "react-router-dom";
+import ShopPage from "./Shophomepage";
 
 const Login: React.FC = () => {
   const user = useContext(AuthContext);
@@ -14,9 +15,7 @@ const Login: React.FC = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
-  const signOut = async () => {
-    await auth.signOut();
-  };
+ 
   const signIn = async () => {
     try {
       await auth.signInWithEmailAndPassword(
@@ -31,7 +30,7 @@ const Login: React.FC = () => {
   };
   return (
     <>
-      {user && <Button onClick={signOut}>Sign Out</Button>}
+      {user && <><ShopPage /></>}
       {!user ? (
         <div className="main">
           <div className="sub-main">
@@ -74,7 +73,7 @@ const Login: React.FC = () => {
           </div>
         </div>
       ) : (
-        <h2 className="mt-4 text-center">Welcome {user.email}</h2>
+        <h2></h2>
       )}
     </>
   );
