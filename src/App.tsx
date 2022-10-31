@@ -5,6 +5,7 @@ import { auth } from "./firebaseSetup/firebaseSetup";
 import Login from "./pages/login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "./pages/Register";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route index element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/mycart" element={<Cart />} />
       </Routes>
     </BrowserRouter>
   );

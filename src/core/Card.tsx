@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 import './Card.css';
 
 interface Props {
@@ -22,12 +23,13 @@ export const Card: React.FC<Props> = ({
               <h3>{title}</h3>
             </div>
             <div className="card-body">
-              <p>{body}</p>
+              <p>{body}$</p>
             </div>
+            <div className="btn">
+            <Button variant="standard" backgroundColor="dark">
+                Read More
+            </Button>
           </div>
-          <div className="btn">
-            <button>
-              <a>Read More</a></button>
           </div>
         </div>
     )

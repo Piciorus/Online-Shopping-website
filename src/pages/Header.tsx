@@ -5,9 +5,11 @@ import Button from "../core/Button";
 import { auth } from "../firebaseSetup/firebaseSetup";
 import { AuthContext } from "../context/AuthContext";
 import { IconProfile } from "../image/icons";
+import { useNavigate } from "react-router-dom";
 
 const Header: React.FC = () => {
   const user = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const signOut = async () => {
     await auth.signOut();
@@ -33,7 +35,7 @@ const Header: React.FC = () => {
         <Button variant="standard" backgroundColor="dark">
           Discover
         </Button>
-        <Button variant="standard" backgroundColor="dark">
+        <Button variant="standard" backgroundColor="dark" onClick={() => navigate("/mycart")}>
           Your Cart
         </Button>
         <Button
