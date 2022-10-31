@@ -7,16 +7,11 @@
   margin-top: 100px;
   max-width: 1200px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+  grid-template-columns: 1fr 1fr 1fr ;
   column-gap: 100px;
   row-gap: 100px;
 }
-
-/* .item {
-  background: #f6f6f6;
-  padding: 1em;
-  margin: 0 0 1.5em;
-} */
 
 .conti {
   display: grid;
@@ -32,6 +27,13 @@
   top: 0;
   left: 0;
   z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    black 0%,
+    rgb(72, 72, 72) 50%,
+    rgb(48, 1, 1) 100%
+  );
+
 }
 
 .main {
@@ -127,4 +129,18 @@ input {
 .error {
   color: red;
   padding-top: 10px;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;              
+}
+
+body::-webkit-scrollbar-track {
+  background: black;        
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: black;    
+  border-radius: 20px;       
+  border: 3px solid rgb(130, 10, 10);  
 }

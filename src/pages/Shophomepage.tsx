@@ -6,6 +6,7 @@ import "../index.css";
 import Header from "./Header";
 import axios from "axios";
 import { Image } from "../core/Image";
+import Card from "../core/Card";
 
 const ShopPage: React.FC = () => {
   const user = useContext(AuthContext);
@@ -26,20 +27,15 @@ const ShopPage: React.FC = () => {
   return (
     <>
       <div className="mainhome">
-        <video muted className="video">
-          <source src={require("../image/video.mp4")} type="video/mp4" />
+        <video autoPlay loop muted className="video">
+          {/* <source src={require("../image/video.mp4")} type="video/mp4" /> */}
         </video>
         <Header />
         <section className="photo-grid-container">
           {products.map(({ images, price, title, id }) => (
             <>
               <div className="grid-item">
-                <Image size="standard" url={images} />
-                <div className="text-white text-center">
-                  {title}
-                  {id}
-                </div>
-                <div className="text-white text-center">Price={price}$</div>
+                <Card title={title} imageUrl={images} body={price}/>
               </div>
             </>
           ))}
