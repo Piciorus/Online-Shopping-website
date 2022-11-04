@@ -5,6 +5,8 @@
   transition: 0.3s;
   animation:ease-in;
   background-color: rgba(255, 255, 255, 0.194);
+  border: 2px solid ;
+  border-radius: 10px;
 }
 
 .card-container:hover{
@@ -34,14 +36,32 @@
   font-weight: bold;
 }
 
-.btn
+.da
 {  
+  margin-left: 100px;
+}
+
+.btnicon{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  margin-left: 115px;
+  background-color:inherit;
+  width: 20%;
+}
+
+.btnicon:hover{
+  background-color: rgb(68, 62, 62);
+  color: white;
+
 }
 
 .card-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  font-size: x-large;
+  margin-top: 10px;
+
 }

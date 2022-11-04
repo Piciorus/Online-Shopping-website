@@ -31,7 +31,7 @@ const Button1: React.FC<Props> = ({
   const variantClass = (variant: any) => {
     switch (variant) {
       case "standard":
-        return "underline decoration-zinc-800 hover:decoration-white";
+        return "underline decoration-zinc-800 hover:decoration-white ";
       case "non-standard":
         return "hover:bg-red-600";
       case "icon":
@@ -42,14 +42,14 @@ const Button1: React.FC<Props> = ({
   };
 
   const sizeClass =
-    size === "standard" ? "px-3 py-2 w-36 text-sm" : "text-sm px-5 py-2.5";
+    size === "standard" ? "px-3 py-2 w-36 text-sm " : "text-sm px-3 py-2.5";
   const disabledClass = disabled ? "cursor-not-allowed" : "cursor-pointer";
   const borderClass = border ? "border-2 border-black" : "";
   const backgroundClass =
     backgroundColor === "dark"
       ? "bg-black-800 text-white font-bold"
       : "bg-green-900 text-black rounded-full";
-  const textAlignClass = textallign === "center" ? "text-center" : "text-right";
+  const textAlignClass = textallign === "center" ? "text-center text-lg" : "text-right";
 
   return (
     <button

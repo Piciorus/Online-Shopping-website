@@ -34,9 +34,7 @@ const ShopPage: React.FC = () => {
         <section className="photo-grid-container">
           {products.map(({ images, price, title, id }) => (
             <>
-              {/* <div className="grid-item"> */}
                 <Card title={title} imageUrl={images} body={price}/>
-              {/* </div> */}
             </>
           ))}
         </section>

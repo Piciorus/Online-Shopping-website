@@ -29,8 +29,8 @@ const Header: React.FC = () => {
         <img src={icon} />
       </h1>
       <div className="conti">
-        <Button variant="standard" backgroundColor="dark">
-          About
+        <Button variant="standard" backgroundColor="dark" onClick={() => navigate("/")}>
+          Home
         </Button>
         <Button variant="standard" backgroundColor="dark">
           Discover

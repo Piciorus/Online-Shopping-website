@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .photo-grid-container {
   margin:0px auto;
   margin-top: 100px;
@@ -17,7 +18,7 @@
   .photo-grid-container {
     grid-template-columns: 1fr;
     margin:50px 50px;
-
+    max-width: 800px;
   }
 }
 
