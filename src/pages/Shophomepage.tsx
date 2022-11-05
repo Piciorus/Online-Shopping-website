@@ -11,14 +11,20 @@ import Card from "../core/Card";
 const ShopPage: React.FC = () => {
   const user = useContext(AuthContext);
   const [products, setProducts] = useState([]);
+  const [limit, setLimit] = useState(0);
 
   useEffect(() => {
-    fetch("https://api.escuelajs.co/api/v1/products")
-      .then((response) => response.json())
-      .then((response) => {
-        setProducts(response);
-      });
-  }, []);
+    getNews();
+}, []);
+
+
+const getNews = async () => {
+  const response = await fetch('https://dummyjson.com/products?limit=100');
+    const data = await response.json();
+    data.limit=90;
+    setProducts(data.products)
+    
+    }
 
   const signOut = async () => {
     await auth.signOut();
@@ -32,9 +38,10 @@ const ShopPage: React.FC = () => {
         </video>
         <Header />
         <section className="photo-grid-container">
-          {products.map(({ images, price, title, id }) => (
+          {products.map((product: {
+            thumbnail: string | undefined; title: string | undefined; images: (string | undefined)[]; price: string | undefined; }) => (
             <>
-                <Card title={title} imageUrl={images} body={price}/>
+                <Card title={product.title} imageUrl={product.thumbnail} body={product.price}/>
             </>
           ))}
         </section>
