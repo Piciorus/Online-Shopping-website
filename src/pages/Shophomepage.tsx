@@ -4,7 +4,6 @@ import Button from "../core/Button";
 import { auth } from "../firebaseSetup/firebaseSetup";
 import "../index.css";
 import Header from "./Header";
-import axios from "axios";
 import { Image } from "../core/Image";
 import Card from "../core/Card";
 
@@ -21,7 +20,6 @@ const ShopPage: React.FC = () => {
 const getNews = async () => {
   const response = await fetch('https://dummyjson.com/products?limit=100');
     const data = await response.json();
-    data.limit=90;
     setProducts(data.products)
     
     }

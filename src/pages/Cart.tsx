@@ -1,17 +1,18 @@
-import React, { useContext, useRef, useState } from "react";
-import Header from "./Header";
+import { Col, Row } from "react-bootstrap"
+import { StoreItem } from "../components/StoreItem"
+import storeItems from "../data/items.json"
 
-
-const Cart: React.FC = () => {
-
+export default function Cart() {
   return (
     <>
-      <Header/>
-      <div className="video">
-
-      </div>          
+      <h1>Store</h1>
+      <Row md={2} xs={1} lg={3} className="g-3">
+        {storeItems.map(item => (
+          <Col key={item.id}>
+            <StoreItem {...item} />
+          </Col>
+        ))}
+      </Row>
     </>
-    );
-};
-export default Cart;
-
+  )
+}

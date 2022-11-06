@@ -1,4 +1,5 @@
 import React from "react";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 import { IconCart } from "../image/icons";
 import Button from "./Button";
 import "./Card.css";
@@ -10,6 +11,13 @@ interface Props {
 }
 
 export const Card: React.FC<Props> = ({ title, imageUrl, body }) => {
+  const {
+    getItemQuantity,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    removeFromCart,
+  } = useShoppingCart()
+
   return (
     <div className="card-container">
       <div className="image_container">
@@ -28,6 +36,7 @@ export const Card: React.FC<Props> = ({ title, imageUrl, body }) => {
               size="small"
               variant="icon"
               backgroundColor="dark"
+              
               icon={<IconCart />}
             ></Button>
           </div>
