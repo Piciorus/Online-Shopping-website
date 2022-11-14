@@ -6,8 +6,11 @@ import { auth } from "../firebaseSetup/firebaseSetup";
 import { AuthContext } from "../context/AuthContext";
 import { IconProfile } from "../image/icons";
 import { useNavigate } from "react-router-dom";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 
 const Header: React.FC = () => {
+  const { cartQuantity } = useShoppingCart();
+  const quantity = cartQuantity;
   const user = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -29,13 +32,17 @@ const Header: React.FC = () => {
         <img src={icon} />
       </h1>
       <div className="conti">
-        <Button variant="standard" backgroundColor="dark" onClick={() => navigate("/")}>
+        <Button
+          variant="standard"
+          backgroundColor="dark"
+          onClick={() => navigate("/")}
+        >
           Home
         </Button>
         <Button variant="standard" backgroundColor="dark">
           Discover
         </Button>
-        <button className="button-cart" onClick={() => navigate("/mycart")}>
+        <button className="button-cart" data-tooltip={quantity} onClick={() => navigate("/mycart")}>
           Your Cart
         </button>
         <Button

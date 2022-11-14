@@ -167,7 +167,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .button-cart:before{
-  content:'5';
+  content:attr(data-tooltip);
   position: absolute;
   top:-3px;
   right:-0px;

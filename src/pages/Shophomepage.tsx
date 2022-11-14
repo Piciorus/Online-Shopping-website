@@ -34,7 +34,7 @@ const getNews = async () => {
         <video autoPlay loop muted className="video">
           {/* <source src={require("../image/video.mp4")} type="video/mp4" /> */}
         </video>
-        <Header />
+        <Header/>
         <section className="photo-grid-container">
           {products.map((product: {
             id: number;
