@@ -37,9 +37,10 @@ const getNews = async () => {
         <Header />
         <section className="photo-grid-container">
           {products.map((product: {
+            id: number;
             thumbnail: string | undefined; title: string | undefined; images: (string | undefined)[]; price: string | undefined; }) => (
             <>
-                <Card title={product.title} imageUrl={product.thumbnail} body={product.price}/>
+                <Card title={product.title} imageUrl={product.thumbnail} body={product.price} id={product.id}/>
             </>
           ))}
         </section>

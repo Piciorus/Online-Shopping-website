@@ -8,15 +8,18 @@ interface Props {
   title?: string;
   imageUrl?: string;
   body?: string;
+  id: number
+
 }
 
-export const Card: React.FC<Props> = ({ title, imageUrl, body }) => {
+export const Card: React.FC<Props> = ({ id,title, imageUrl, body }) => {
   const {
     getItemQuantity,
     increaseCartQuantity,
     decreaseCartQuantity,
     removeFromCart,
   } = useShoppingCart()
+  const quantity = getItemQuantity(id)
 
   return (
     <div className="card-container">
@@ -36,7 +39,7 @@ export const Card: React.FC<Props> = ({ title, imageUrl, body }) => {
               size="small"
               variant="icon"
               backgroundColor="dark"
-              
+              onClick={() => increaseCartQuantity(id)}
               icon={<IconCart />}
             ></Button>
           </div>

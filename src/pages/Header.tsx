@@ -35,9 +35,9 @@ const Header: React.FC = () => {
         <Button variant="standard" backgroundColor="dark">
           Discover
         </Button>
-        <Button variant="standard" backgroundColor="dark" onClick={() => navigate("/mycart")}>
+        <button className="button-cart" onClick={() => navigate("/mycart")}>
           Your Cart
-        </Button>
+        </button>
         <Button
           onClick={signOut}
           variant="non-standard"
