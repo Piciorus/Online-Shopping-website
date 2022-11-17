@@ -1,12 +1,16 @@
 import React, { useContext, useRef, useState } from "react";
 import "../index.css";
 import icon from "../image/download.png";
-import Button from "../core/Button";
+import Button1 from "../core/Button";
 import { auth } from "../firebaseSetup/firebaseSetup";
 import { AuthContext } from "../context/AuthContext";
 import { IconProfile } from "../image/icons";
 import { useNavigate } from "react-router-dom";
 import { useShoppingCart } from "../context/ShoppingCartContext";
+import DropDownMenu from "../core/DropDownMenu";
+import Button from "@mui/material/Button";
+import { Tooltip } from "@mui/material";
+import { borderRadius } from "@mui/system";
 
 const Header: React.FC = () => {
   const { cartQuantity } = useShoppingCart();
@@ -20,7 +24,7 @@ const Header: React.FC = () => {
   return (
     <>
       <div className="flex text-center text-green-500">
-        <Button
+        <Button1
           backgroundColor="dark"
           variant="icon"
           size="small"
@@ -32,26 +36,37 @@ const Header: React.FC = () => {
         <img src={icon} />
       </h1>
       <div className="conti">
-        <Button
+        {/* <Button1
           variant="standard"
           backgroundColor="dark"
           onClick={() => navigate("/")}
         >
           Home
-        </Button>
-        <Button variant="standard" backgroundColor="dark">
-          Discover
-        </Button>
-        <button className="button-cart" data-tooltip={quantity} onClick={() => navigate("/mycart")}>
+        </Button1> */}
+        
+        <Button style={{color:'white'}} variant="text" size="large">Home</Button>
+        <DropDownMenu />
+        {/* <Button variant="standard" backgroundColor="dark">
+          Topics
+        </Button> */}
+        {/* <button className="button-cart" data-tooltip={quantity} onClick={() => navigate("/mycart")}>
           Your Cart
-        </button>
-        <Button
+        </button> */}
+        {/* bg-green-900 text-black rounded-full */}
+        {quantity === 0 ? (
+        <Button style={{color:'white'}} variant="text" color="inherit" size="large" onClick={() => navigate("/mycart")}>My Cart</Button>
+        ) : (
+          <Button style={{color:'white'}} className="button-cart" data-tooltip={quantity} variant="text" color="inherit" size="large" onClick={() => navigate("/mycart")}>My Cart</Button>
+          )}
+        {/* <Button1
           onClick={signOut}
           variant="non-standard"
           backgroundColor="light"
         >
           Sign Out
-        </Button>
+        </Button1> */}
+        <Button style={{color:'white',backgroundColor:'green',borderRadius:'20px'}} variant="text"  size="large" onClick={signOut}>Sign out</Button>
+
       </div>
     </>
   );
