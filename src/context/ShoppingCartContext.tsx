@@ -1,4 +1,9 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useState,
+} from "react";
 import { ShoppingCart } from "../components/ShoppingCart";
 import { useLocalStorage } from "../pages/useLocalStorage";
 
@@ -31,20 +36,6 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    getNews();
-}, []);
-
-
-const getNews = async () => {
-  const data1 = [];
-  const response = await fetch('https://dummyjson.com/products?limit=100');
-    const data = await response.json();
-    data1.push(data.products)
-    setProducts(data.products)
-    }
-
- 
   const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
     "shopping-cart",
     []
@@ -112,7 +103,6 @@ const getNews = async () => {
       }}
     >
       {children}
-      <ShoppingCart isOpen={isOpen} />
     </ShoppingCartContext.Provider>
   );
 }

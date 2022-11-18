@@ -11,11 +11,11 @@ type ShoppingCartProps = {
 export function ShoppingCart({ isOpen }: ShoppingCartProps) {
   const { closeCart, cartItems } = useShoppingCart()
   return (
-    <Offcanvas show={isOpen} onHide={closeCart} placement="end">
-      <Offcanvas.Header closeButton>
-        <Offcanvas.Title>Cart</Offcanvas.Title>
-      </Offcanvas.Header>
-      <Offcanvas.Body>
+    // <Offcanvas style={{width:'100%'}} show={isOpen} onHide={closeCart} placement="end">
+    //   <Offcanvas.Header closeButton>
+    //     <Offcanvas.Title>My cart</Offcanvas.Title>
+    //   </Offcanvas.Header>
+    //   <Offcanvas.Body>
         <Stack gap={3}>
           {cartItems.map((item: JSX.IntrinsicAttributes & { id: number; quantity: number }) => (
             <CartItem key={item.id} {...item} />
@@ -30,7 +30,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
             )}
           </div>
         </Stack>
-      </Offcanvas.Body>
-    </Offcanvas>
+    //   </Offcanvas.Body>
+    // </Offcanvas>
   )
 }

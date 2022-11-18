@@ -1,4 +1,5 @@
 import { Button, Card } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
 import { useShoppingCart } from "../context/ShoppingCartContext"
 import { formatCurrency } from "../utilities/formatCurrency"
 
@@ -22,8 +23,10 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
     increaseCartQuantity,
     decreaseCartQuantity,
     removeFromCart,
+    openCart,
   } = useShoppingCart()
   const quantity = getItemQuantity(id)
+  const navigate = useNavigate();
 
   return (
     <Card className="h-100">
@@ -64,6 +67,9 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
                 size="sm"
               >
                 Remove
+              </Button>
+              <Button onClick={openCart} variant="success" size="sm">
+                ItemCarts
               </Button>
             </div>
           )}

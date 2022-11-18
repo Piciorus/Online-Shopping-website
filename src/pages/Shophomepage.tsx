@@ -11,7 +11,7 @@ const ShopPage: React.FC = () => {
   const user = useContext(AuthContext);
   const [products, setProducts] = useState([]);
   const [limit, setLimit] = useState(0);
-
+  
   useEffect(() => {
     getNews();
 }, []);

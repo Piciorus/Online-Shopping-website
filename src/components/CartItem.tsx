@@ -9,14 +9,15 @@ type CartItemProps = {
 }
 
 export function CartItem({ id, quantity }: CartItemProps) {
-  const { removeFromCart } = useShoppingCart()
+  const { removeFromCart,increaseCartQuantity,decreaseCartQuantity,openCart } = useShoppingCart()
   const item = storeItems.find(i => i.id === id)
+
   if (item == null) return null
 
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
       <img
-        src={item.imgUrl}
+        src={item.thumbnail}
         style={{ width: "125px", height: "75px", objectFit: "cover" }}
       />
       <div className="me-auto">
@@ -33,13 +34,37 @@ export function CartItem({ id, quantity }: CartItemProps) {
         </div>
       </div>
       <div> {formatCurrency(item.price * quantity)}</div>
-      <Button
-        variant="outline-danger"
-        size="sm"
-        onClick={() => removeFromCart(item.id)}
-      >
-        &times;
-      </Button>
+      {quantity === 0 ? (
+            <Button className="w-100" onClick={() => increaseCartQuantity(id)}>
+              + Add To Cart
+            </Button>
+          ) : (
+            <div
+              className="d-flex align-items-center flex-column"
+              style={{ gap: ".5rem" }}
+            >
+              <div
+                className="d-flex align-items-center justify-content-center"
+                style={{ gap: ".5rem" }}
+              >
+                <Button onClick={() => decreaseCartQuantity(id)}>-</Button>
+                <div>
+                  <span className="fs-3">{quantity}</span> in cart
+                </div>
+                <Button onClick={() => increaseCartQuantity(id)}>+</Button>
+              </div>
+              <Button
+                onClick={() => removeFromCart(id)}
+                variant="danger"
+                size="sm"
+              >
+                Remove
+              </Button>
+              <Button onClick={openCart} variant="success" size="sm">
+                ItemCarts
+              </Button>
+            </div>
+          )}
     </Stack>
   )
 }

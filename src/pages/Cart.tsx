@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap"
 import { StoreItem } from "../components/StoreItem"
 import Card from "../core/Card";
-import storeItems from "../data/items.json"
+// import storeItems from "../data/items.json"
 
 export default function Cart() {
   const [products, setProducts] = useState([]);

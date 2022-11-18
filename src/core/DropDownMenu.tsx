@@ -2,16 +2,34 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const BasicMenu: React.FC = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
+  const [topics,setTopics] = useState([]);
+
+  const getTopics = async () => {
+    const response = await fetch("https://dummyjson.com/products/categories");
+    const data = await response.json();
+    setTopics(data);
+  };
+
+  useEffect(() => {
+    getTopics();
+  }, []);
+  
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const navigate = useNavigate();
+
+
 
   return (
     <div>
@@ -35,9 +53,11 @@ const BasicMenu: React.FC = () => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        {topics.map((topic) => (
+          <>
+          <MenuItem>{topic}</MenuItem>
+          </>
+        ))}
       </Menu>
     </div>
   );

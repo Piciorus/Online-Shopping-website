@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "../index.css";
 import icon from "../image/download.png";
 import Button1 from "../core/Button";
@@ -13,7 +13,7 @@ import { Tooltip } from "@mui/material";
 import { borderRadius } from "@mui/system";
 
 const Header: React.FC = () => {
-  const { cartQuantity } = useShoppingCart();
+  const { cartQuantity,openCart } = useShoppingCart();
   const quantity = cartQuantity;
   const user = useContext(AuthContext);
   const navigate = useNavigate();

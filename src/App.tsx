@@ -8,10 +8,12 @@ import Cart from "./pages/Cart";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 import Shophomepage from "./pages/Shophomepage";
 import Login from "./pages/login";
+import SummaryPage from "./pages/ccc";
+import { ShoppingCart } from "./components/ShoppingCart";
 
 
 function App() {
-  
+
   return (
     <ShoppingCartProvider>
     <BrowserRouter>
@@ -19,7 +21,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Shophomepage />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/mycart" element={<Cart/>} />
+        <Route path="/mycart" element={<ShoppingCart isOpen={true}/>} />
       </Routes>
     </BrowserRouter>
     </ShoppingCartProvider>
