@@ -15,25 +15,26 @@ export function CartItem({ id, quantity }: CartItemProps) {
   if (item == null) return null
 
   return (
-    <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
+    <Stack direction="horizontal" gap={4} className="d-flex align-items-center ml-6 mr-6">
       <img
         src={item.thumbnail}
-        style={{ width: "125px", height: "75px", objectFit: "cover" }}
+        style={{ width: "300px", height: "125px", objectFit: "cover" }}
       />
       <div className="me-auto">
         <div>
-          {item.name}{" "}
-          {quantity > 1 && (
-            <span className="text-muted" style={{ fontSize: ".65rem" }}>
+          {item.title}{" "}
+          <div></div>
+          {/* {quantity > 1 && (
+            <span className="text-white" style={{ fontSize: "20px" }}>
               x{quantity}
             </span>
-          )}
+          )} */}
         </div>
-        <div className="text-muted" style={{ fontSize: ".75rem" }}>
+        <div className="text-white" style={{ fontSize: "15px" }}>
           {formatCurrency(item.price)}
         </div>
       </div>
-      <div> {formatCurrency(item.price * quantity)}</div>
+      <div className="text-white"> {formatCurrency(item.price * quantity)}</div>
       {quantity === 0 ? (
             <Button className="w-100" onClick={() => increaseCartQuantity(id)}>
               + Add To Cart
@@ -48,8 +49,8 @@ export function CartItem({ id, quantity }: CartItemProps) {
                 style={{ gap: ".5rem" }}
               >
                 <Button onClick={() => decreaseCartQuantity(id)}>-</Button>
-                <div>
-                  <span className="fs-3">{quantity}</span> in cart
+                <div className="text-white">
+                  <span className="fs-3 text-white">{quantity}</span> in cart
                 </div>
                 <Button onClick={() => increaseCartQuantity(id)}>+</Button>
               </div>
@@ -59,9 +60,6 @@ export function CartItem({ id, quantity }: CartItemProps) {
                 size="sm"
               >
                 Remove
-              </Button>
-              <Button onClick={openCart} variant="success" size="sm">
-                ItemCarts
               </Button>
             </div>
           )}

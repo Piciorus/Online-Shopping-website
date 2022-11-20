@@ -68,9 +68,6 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
               >
                 Remove
               </Button>
-              <Button onClick={openCart} variant="success" size="sm">
-                ItemCarts
-              </Button>
             </div>
           )}
         </div>
