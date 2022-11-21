@@ -34,7 +34,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
           )}
           <div className="total">
               <Button>Go to payment</Button>
-              Total{" "}
+              Total{"   "}
               {formatCurrency(
                 cartItems.reduce(
                   (

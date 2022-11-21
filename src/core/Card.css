@@ -35,7 +35,8 @@ p {
 .card-title {
   margin-bottom: 0.5rem;
   margin-top: 0.75rem;
-  text-align: center;
+  margin-left: 10px;
+  text-align: left;
   font-weight: bold;
 }
 
@@ -45,23 +46,41 @@ p {
 
 .group {
   display: flex;
+  
 }
 
 .btnicon {
   margin-left: 120px;
   margin-right: 10px;
-  margin-top: 15px;
+  margin-top: 0px;
   background-color: inherit;
   width: 20%;
 }
 
 .btnicon:hover {
-  background-color: #3b5b69;
+  background-color: rgba(156, 142, 142, 0.194);
   color: white;
 }
 
 .card-body {
-  text-align: center;
+  text-align: left;
   font-size: x-large;
-  margin-top: 25px;
+  margin-top: 10px;
+  margin-left: 10px;
+
+}
+
+.ratingstar{
+  display:flex;
+  justify-content: left;
+  align-items: center;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.discount{
+  margin-left: 10px;
+  margin-top:10px;
+  text-decoration: line-through;
+
 }

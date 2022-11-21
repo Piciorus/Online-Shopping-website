@@ -1,25 +1,29 @@
+import Rating from "@mui/material/Rating";
+import Typography from "@mui/material/Typography";
 import React from "react";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { IconCart } from "../image/icons";
 import Button from "./Button";
 import "./Card.css";
 
+
 interface Props {
   title?: string;
   imageUrl?: string;
-  body?: string;
-  id: number
+  body: number;
+  id: number;
+  rating?: number;
+  discountPercentage: number;
 
 }
 
-export const Card: React.FC<Props> = ({ id,title, imageUrl, body }) => {
+export const Card: React.FC<Props> = ({ id,title, imageUrl, body,rating,discountPercentage }) => {
   const {
     getItemQuantity,
     increaseCartQuantity,
-    decreaseCartQuantity,
-    removeFromCart,
   } = useShoppingCart()
   const quantity = getItemQuantity(id)
+  var result = (body.valueOf()+((discountPercentage.valueOf()/100) * body.valueOf())).toFixed(2) ;
 
   return (
     <div className="card-container">
@@ -30,9 +34,13 @@ export const Card: React.FC<Props> = ({ id,title, imageUrl, body }) => {
         <div className="card-title">
           <h3>{title}</h3>
         </div>
+        <div className="ratingstar">
+        <Rating name="read-only" value={rating} precision={0.5} readOnly />
+        {rating}</div>
+        <div className="discount">{result}€</div>
         <div className="group">
           <div className="card-body">
-            <p>{body}$</p>
+            <p>{body}€</p>
           </div>
           <div className="btnicon ">
             <Button
