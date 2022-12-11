@@ -15,7 +15,6 @@ const Login: React.FC = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
- 
   const signIn = async () => {
     try {
       await auth.signInWithEmailAndPassword(
@@ -30,7 +29,11 @@ const Login: React.FC = () => {
   };
   return (
     <>
-      {user && <><ShopPage /></>}
+      {user && (
+        <>
+          <ShopPage />
+        </>
+      )}
       {!user ? (
         <div className="main">
           <div className="sub-main">

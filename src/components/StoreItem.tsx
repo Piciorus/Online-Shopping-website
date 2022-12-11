@@ -1,21 +1,21 @@
-import { Button, Card } from "react-bootstrap"
-import { useNavigate } from "react-router-dom"
-import { useShoppingCart } from "../context/ShoppingCartContext"
-import { formatCurrency } from "../utilities/formatCurrency"
+import { Button, Card } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { useShoppingCart } from "../context/ShoppingCartContext";
+import { formatCurrency } from "../utilities/formatCurrency";
 
 type StoreItemProps = {
-  id: number
-  name: string
-  price: number
-  imgUrl: string
-  description?: string
-  rating?: number
-  stock?: number
-  brand?: string
-  discountPercentage?: number
-  category?: string
-  thumbnail?: string
-}
+  id: number;
+  name: string;
+  price: number;
+  imgUrl: string;
+  description?: string;
+  rating?: number;
+  stock?: number;
+  brand?: string;
+  discountPercentage?: number;
+  category?: string;
+  thumbnail?: string;
+};
 
 export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
   const {
@@ -24,8 +24,8 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
     decreaseCartQuantity,
     removeFromCart,
     openCart,
-  } = useShoppingCart()
-  const quantity = getItemQuantity(id)
+  } = useShoppingCart();
+  const quantity = getItemQuantity(id);
   const navigate = useNavigate();
 
   return (
@@ -73,5 +73,5 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
         </div>
       </Card.Body>
     </Card>
-  )
+  );
 }

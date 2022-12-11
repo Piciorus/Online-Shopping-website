@@ -23,7 +23,6 @@
 .card-content {
   margin: 0.5rem;
   margin-top: 0.3rem;
-  
 }
 
 .h3,
@@ -46,7 +45,6 @@ p {
 
 .group {
   display: flex;
-  
 }
 
 .btnicon {
@@ -67,20 +65,18 @@ p {
   font-size: x-large;
   margin-top: 10px;
   margin-left: 10px;
-
 }
 
-.ratingstar{
-  display:flex;
+.ratingstar {
+  display: flex;
   justify-content: left;
   align-items: center;
   margin-left: 10px;
   font-weight: bold;
 }
 
-.discount{
+.discount {
   margin-left: 10px;
-  margin-top:10px;
+  margin-top: 10px;
   text-decoration: line-through;
-
 }

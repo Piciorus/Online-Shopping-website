@@ -6,7 +6,6 @@ import { IconCart } from "../image/icons";
 import Button from "./Button";
 import "./Card.css";
 
-
 interface Props {
   title?: string;
   imageUrl?: string;
@@ -14,16 +13,22 @@ interface Props {
   id: number;
   rating?: number;
   discountPercentage: number;
-
 }
 
-export const Card: React.FC<Props> = ({ id,title, imageUrl, body,rating,discountPercentage }) => {
-  const {
-    getItemQuantity,
-    increaseCartQuantity,
-  } = useShoppingCart()
-  const quantity = getItemQuantity(id)
-  var result = (body.valueOf()+((discountPercentage.valueOf()/100) * body.valueOf())).toFixed(2) ;
+export const Card: React.FC<Props> = ({
+  id,
+  title,
+  imageUrl,
+  body,
+  rating,
+  discountPercentage,
+}) => {
+  const { getItemQuantity, increaseCartQuantity } = useShoppingCart();
+  const quantity = getItemQuantity(id);
+  var result = (
+    body.valueOf() +
+    (discountPercentage.valueOf() / 100) * body.valueOf()
+  ).toFixed(2);
 
   return (
     <div className="card-container">
@@ -35,8 +40,9 @@ export const Card: React.FC<Props> = ({ id,title, imageUrl, body,rating,discount
           <h3>{title}</h3>
         </div>
         <div className="ratingstar">
-        <Rating name="read-only" value={rating} precision={0.5} readOnly />
-        {rating}</div>
+          <Rating name="read-only" value={rating} precision={0.5} readOnly />
+          {rating}
+        </div>
         <div className="discount">{result}€</div>
         <div className="group">
           <div className="card-body">

@@ -27,7 +27,6 @@ const Button1: React.FC<Props> = ({
   backgroundColor,
   textallign = "center",
 }) => {
-
   const variantClass = (variant: any) => {
     switch (variant) {
       case "standard":
@@ -49,7 +48,8 @@ const Button1: React.FC<Props> = ({
     backgroundColor === "dark"
       ? "bg-black-800 text-white font-bold"
       : "bg-green-900 text-black rounded-full";
-  const textAlignClass = textallign === "center" ? "text-center text-lg" : "text-right";
+  const textAlignClass =
+    textallign === "center" ? "text-center text-lg" : "text-right";
 
   return (
     <button

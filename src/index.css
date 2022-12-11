@@ -2,15 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-.buttontopics{
-  color:white;
+.buttontopics {
+  color: white;
   font-weight: bold;
   margin-left: 20px;
   width: 20px;
 }
 
 .photo-grid-container {
-  margin:0px auto;
+  margin: 0px auto;
   margin-top: 100px;
   max-width: 1200px;
   display: grid;
@@ -23,7 +23,7 @@
 @media only screen and (max-width: 480px) and (min-width: 320px) {
   .photo-grid-container {
     grid-template-columns: 1fr;
-    margin:50px 50px;
+    margin: 50px 50px;
     max-width: 800px;
   }
 }
@@ -36,7 +36,7 @@
 
 @media only screen and (max-width: 480px) and (min-width: 320px) {
   .conti {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -51,9 +51,13 @@
   top: 0;
   left: 0;
   z-index: -1;
-  background: #0F2027;  /* fallback for old browsers */
-  background: linear-gradient(to bottom, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+  background: #0f2027; /* fallback for old browsers */
+  background: linear-gradient(
+    to bottom,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .main {
@@ -151,38 +155,36 @@ input {
 }
 
 body::-webkit-scrollbar {
-  width: 12px;              
+  width: 12px;
 }
 
 body::-webkit-scrollbar-track {
-  background: black;        
+  background: black;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: black;    
-  border-radius: 20px;       
-  border: 3px solid rgb(130, 10, 10);  
+  background-color: black;
+  border-radius: 20px;
+  border: 3px solid rgb(130, 10, 10);
 }
 
-.button-cart{
-  position:relative;
-  color:white;
+.button-cart {
+  position: relative;
+  color: white;
   font-weight: bold;
   font-weight: 800;
-
 }
 
-.button-cart:before{
-  content:attr(data-tooltip);
+.button-cart:before {
+  content: attr(data-tooltip);
   position: absolute;
-  top:-3px;
-  right:-0px;
+  top: -3px;
+  right: -0px;
   background: red;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
-

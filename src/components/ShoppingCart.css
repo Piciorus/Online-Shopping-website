@@ -20,11 +20,10 @@
   background: linear-gradient(to bottom, #2c5364, #203a43, #0f2027);
 }
 
-.total{
+.total {
   display: grid;
   grid-template-columns: 100px 150px;
   align-items: center;
   justify-content: space-between;
   margin: 1px 20px 10px 20px;
-  
 }

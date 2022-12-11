@@ -21,12 +21,15 @@ const Register: React.FC = () => {
         passwordRef.current!.value
       );
       setError("");
-    } catch (error ) {
+    } catch (error) {
       console.error(error);
-      if(passwordRef.current!.value.length < 6 && passwordRef.current!.value.length > 0){
+      if (
+        passwordRef.current!.value.length < 6 &&
+        passwordRef.current!.value.length > 0
+      ) {
         setError("Password must be at least 6 characters");
-      }else if(emailRef.current!.value.includes("@") === false){
-      setError("Invalid email");
+      } else if (emailRef.current!.value.includes("@") === false) {
+        setError("Invalid email");
       }
     }
   };
